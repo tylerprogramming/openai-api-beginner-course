@@ -101,5 +101,23 @@ load_dotenv()
 #### At the most basic level, we are sending a prompt to the model and receiving a response in a while loop until the user types 'exit'.
 
 
+# 04 - simple agent.py
+
+- This is a simple agent that uses the OpenAI API to generate responses to user prompts.
+- We create a class called `SimpleAgent` that has a `generate_response` method that takes a prompt and returns a response.
+- We give it a personality and a system prompt.
+- It uses the `gpt-4o-mini` model.
+- It uses the `conversation_history` to keep track of the chat history.
+- It uses the `client.chat.completions.create` method to generate responses.
+
+#### This is a very simple agent, but it shows the power of the OpenAI API.
+
+# 05 - TTS (text-to-speech)
+- This is a simple TTS app that uses the OpenAI API to convert text to speech.
+- It uses the `tts-1` model.
+- It uses the `client.audio.speech.create` method to generate speech.
+- It uses the `speech_file_path` to save the speech to a file.
+- It uses the `response.stream_to_file` method to save the speech to a file.
+
 ## Documents:
 - [models](https://platform.openai.com/docs/models)
