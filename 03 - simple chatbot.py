@@ -1,4 +1,4 @@
-from openai import OpenAI
+from openai import OpenAI, OpenAIError
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -27,5 +27,5 @@ while True:
 
         print("AI: " + response.choices[0].message.content.strip())
         conversation_history.append({"role": "assistant", "content": response.choices[0].message.content.strip()})
-    except client.error.OpenAIError as e:
+    except OpenAIError as e:
         print("Error: " + str(e))
