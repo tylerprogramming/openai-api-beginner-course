@@ -7,7 +7,7 @@ class SimpleAgent:
     def __init__(self):
         self.client = OpenAI()
         self.conversation_history = []
-        self.model = "gpt-4o-mini"
+        self.model = "gpt-6-luna"
         self.system_prompt = "You are a helpful assistant."
         self.personality = "You will answer questions as if you are a wise old wizard."
 

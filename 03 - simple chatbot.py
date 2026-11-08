@@ -1,4 +1,4 @@
-from openai import OpenAI
+from openai import OpenAI, OpenAIError
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -18,7 +18,7 @@ while True:
     
     try:
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-6-luna",
         messages=[
             {"role": "system", "content": f"You are a helpful assistant, you will answer the user's questions as Shakespeare would.  The chat history context: {conversation_history}"},
             {"role": "user", "content": prompt}
@@ -27,5 +27,5 @@ while True:
 
         print("AI: " + response.choices[0].message.content.strip())
         conversation_history.append({"role": "assistant", "content": response.choices[0].message.content.strip()})
-    except client.error.OpenAIError as e:
+    except OpenAIError as e:
         print("Error: " + str(e))
