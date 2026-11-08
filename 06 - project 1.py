@@ -10,7 +10,7 @@ class TTSAgent:
     '''
     def __init__(self):
         self.client = OpenAI()
-        self.model = "gpt-4o"
+        self.model = "gpt-6-luna"
         self.system_prompt = "You are a helpful TTS assistant."
         self.personality = "You will answer questions as if you are a wise old wizard."
 

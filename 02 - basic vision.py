@@ -6,7 +6,7 @@ load_dotenv()
 client = OpenAI()
 
 response = client.chat.completions.create(
-  model="gpt-4o",
+  model="gpt-6-luna",
   messages=[
     {
       "role": "user",
@@ -21,7 +21,10 @@ response = client.chat.completions.create(
       ],
     }
   ],
-  max_tokens=300,
+  # GPT-6 models take max_completion_tokens instead of max_tokens. With
+  # reasoning off, the whole budget goes to the visible answer.
+  reasoning_effort="none",
+  max_completion_tokens=300,
 )
 
 print(response.choices[0].message.content)
