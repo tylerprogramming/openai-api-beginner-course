@@ -48,25 +48,23 @@ Make an API call using Python (or another language), send a prompt, and receive 
 ### Installing Python and pip:
 Ensure you have Python installed on your machine, along with pip to install libraries.
 
-### Installing OpenAI Python Library:
+### Installing the Python libraries:
 
 ```bash
-pip install openai
+pip install -r requirements.txt
 ```
+
+This installs `openai` (3.x) and `python-dotenv`. Python 3.10 or newer is required.
 
 ### Setting Up the API Key:
 
-Create a `.env` file in the root of your project and add your OpenAI API key:
+Copy `.env.example` to `.env` in the root of the project and put your OpenAI API key in it:
 
 ```bash
 OPENAI_API_KEY=sk-proj-1111
 ```
 
-### Installing dotenv:
-
-```bash
-pip install python-dotenv
-```
+Every script calls `load_dotenv()`, so the key is read from `.env`. Never paste a real key into a script.
 
 ### Importing the API Key:
 
@@ -77,6 +75,11 @@ load_dotenv()
 
 
 # Models we can call:
+
+> **Model update (November 2026):** the list below is from when the course was recorded (September 2024). OpenAI has since retired or scheduled shutdowns for most of these models; see the [deprecations page](https://developers.openai.com/api/docs/deprecations). The scripts now use:
+> - `gpt-6-luna` for chat and vision (scripts 01-04, 06). It replaces `gpt-4o` and `gpt-4o-mini`, which shut down on January 14, 2027.
+> - `gpt-transcribe` for speech-to-text (script 07). It replaces `whisper-1`, which shuts down on February 26, 2027.
+> - `tts-1` for text-to-speech (scripts 05, 06) still works until January 6, 2027. Its replacement, `gpt-realtime-2.1-mini`, only runs on the Realtime API, not `/v1/audio/speech`, so these two lessons will need a rewrite after that date.
 
 - GPT-4o	Our high-intelligence flagship model for complex, multi-step tasks
 - GPT-4o mini	Our affordable and intelligent small model for fast, lightweight tasks
@@ -94,7 +97,7 @@ load_dotenv()
 # 03 - simple chatbot.py
 
 - This is a simple chatbot that uses the OpenAI API to generate responses to user prompts.
-- It uses the `gpt-4o-mini` model.
+- It uses the `gpt-6-luna` model (the original recording used `gpt-4o-mini`).
 - It uses the `conversation_history` to keep track of the chat history.
 - It uses the `client.chat.completions.create` method to generate responses.
 
@@ -106,7 +109,7 @@ load_dotenv()
 - This is a simple agent that uses the OpenAI API to generate responses to user prompts.
 - We create a class called `SimpleAgent` that has a `generate_response` method that takes a prompt and returns a response.
 - We give it a personality and a system prompt.
-- It uses the `gpt-4o-mini` model.
+- It uses the `gpt-6-luna` model (the original recording used `gpt-4o-mini`).
 - It uses the `conversation_history` to keep track of the chat history.
 - It uses the `client.chat.completions.create` method to generate responses.
 
