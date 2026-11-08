@@ -10,7 +10,7 @@ class STTAgent:
     '''
     def __init__(self, audio_file_name: str, text_file_name: str):
         self.client = OpenAI()
-        self.model = "whisper-1"
+        self.model = "gpt-transcribe"
         self.audio_folder = Path(__file__).parent / "audio"
         self.audio_file_name = audio_file_name
         self.audio_file_path = self.audio_folder / self.audio_file_name
